@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model testUser {
-  id   String @id @default(uuid())
+  id   String @id @default(uuid()) @map("_id") @db.ObjectId
   name String
 
   createdAt DateTime @default(now())
@@ -16,7 +16,7 @@ model testUser {
 }
 
 model admin {
-  id       String @id @default(uuid())
+  id       String @id @default(uuid()) @map("_id") @db.ObjectId
   email    String
   password String
 
@@ -25,7 +25,7 @@ model admin {
 }
 
 model user {
-  id       String @id @default(uuid())
+  id       String @id @default(uuid()) @map("_id") @db.ObjectId
   name     String
   email    String
   password String
@@ -35,7 +35,7 @@ model user {
 }
 
 model igreja {
-  id   String @id @default(uuid())
+  id   String @id @default(uuid()) @map("_id") @db.ObjectId
   name String
 
   createdAt DateTime @default(now())
@@ -43,7 +43,7 @@ model igreja {
 }
 
 model visitante {
-  id           String @id @default(uuid())
+  id           String @id @default(uuid()) @map("_id") @db.ObjectId
   name         String
   phone        String
   gender       String
@@ -60,7 +60,7 @@ model visitante {
 }
 
 model visita {
-  id        String @id @default(uuid())
+  id        String @id @default(uuid()) @map("_id") @db.ObjectId
   visitDate String
 
   createdAt DateTime @default(now())
