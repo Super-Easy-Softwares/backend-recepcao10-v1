@@ -53,7 +53,6 @@ model visitante {
   religion     String
   smallGroup   String
   bibleStudy   String
-  baptismDate  String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
