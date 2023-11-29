@@ -8,7 +8,61 @@ datasource db {
 }
 
 model testUser {
-  id String @id @default(uuid())
-  name String 
+  id   String @id @default(uuid())
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
+model admin {
+  id       String @id @default(uuid())
+  email    String
+  password String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model user {
+  id       String @id @default(uuid())
+  name     String
+  email    String
+  password String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model igreja {
+  id   String @id @default(uuid())
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model visitante {
+  id           String @id @default(uuid())
+  name         String
+  phone        String
+  gender       String
+  age          Int
+  address      String
+  cityAndState String
+  religion     String
+  smallGroup   String
+  bibleStudy   String
+  baptismDate  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model visita {
+  id        String @id @default(uuid())
+  visitDate String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
